@@ -2,6 +2,7 @@
 Team4
 .venv
 .vscode
+node_modules
 
 # misc
 .DS_Store
