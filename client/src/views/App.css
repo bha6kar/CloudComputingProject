@@ -1,0 +1,44 @@
+.App {
+  background-color: black;
+}
+
+.App-body {
+  background-color: #F2F4F8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Login-form {
+  background-color: #1B1B1B;
+  font-family: "Avenir Next", "Helvetica Neue", "Arial";
+  font-size: 10pt;
+  border-radius: 1%;
+  width: 250pt;
+  height: 270pt;
+  padding: 0.1%;
+  padding-bottom: 1%;
+  box-shadow: 2px 2px 2px 2px #E0E3EB;
+}
+
+.District-logo{
+  width: 190pt;
+  height: auto;
+  margin-right: 50%;
+  margin-bottom: -5%;
+}
+
+.Alexa-image{
+  width: 174pt; 
+  height: auto;
+  margin-top: 1%;
+}
+

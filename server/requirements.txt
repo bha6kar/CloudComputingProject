@@ -2,3 +2,5 @@ Flask >= 0.12.2
 requests
 requests-cache
 plotly
+Flask-OAuthlib>= 0.9.5
+mock

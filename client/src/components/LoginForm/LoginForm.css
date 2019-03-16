@@ -1,0 +1,77 @@
+.login-form-wrapper{
+    width: auto;
+    height: auto;
+    border-radius: 2pt;
+    font-family: "Avenir Next", "Helvetica Neue", "Arial";
+    text-align: center;
+}
+
+.description {
+    font-size: 12pt; 
+    text-align: left;
+    padding-left: 4%;
+}
+
+.login-button{
+    background-color: #00ADF5;
+    width: 80%;
+    height: 35px;
+    border: none;
+    color: white;
+    font-family: 'AvenirNext-DemiBold', "Helvetica Neue", "Arial";
+    border-radius: 2pt;
+    font-size: 14pt;
+    margin-top: 5%;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.email, .password{
+    margin-bottom: 10px;
+    width: 184pt;
+    height: 22pt;
+    padding: 2pt ;
+    border: none;
+    border-radius: 2pt;
+    font-family: "Avenir Next", "Helvetica Neue", "Arial";
+    background-color: #F7F7F7;
+    font-size: auto;
+}
+
+.password-label{
+display: inline-block;
+width: 73%;
+height: 11pt;
+text-align: left;
+font-family: "Avenir Next", "Helvetica Neue", "Arial";
+font-size: 11pt;
+}
+
+.password-show{
+    height: 16px;
+    padding: 2px 4px;
+    text-align: center;
+    font-family: "Avenir Next", "Helvetica Neue", "Arial";
+    font-size: 9pt;
+    border: none;
+    position: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.username-label{
+    display: inline-block;
+    width: 73%;
+    height: 11pt;
+    text-align: left;
+    font-family: "Avenir Next", "Helvetica Neue", "Arial";
+    font-size: 11pt;
+}
+    
+.error {
+    font-size: 10pt; 
+    text-align: center;
+    padding-left: 0%;
+}
+
+
