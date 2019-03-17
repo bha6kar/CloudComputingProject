@@ -8,7 +8,7 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: 'input'
+      type: 'password'
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.showHide = this.showHide.bind(this);
@@ -40,7 +40,9 @@ class LoginForm extends Component {
     } = this.props;
     return (<div className="login-form-wrapper" onSubmit={this.onSubmit}>
       <form name="LoginForm" >
-        <p className="description" > Please login below</p>
+        <p className="description" > Please login below
+        <br />
+          to QMUL Cloud Computing </p>
         <label className="username-label" > Username: </label>
         <br />
         <input className="email" type="email" name="email" onChange={this.emailHandler} value={email} />

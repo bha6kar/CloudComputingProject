@@ -40,7 +40,8 @@ export function login(email, password) {
                 var state = initial_url.searchParams.get("state");
                 var redirect_uri = initial_url.searchParams.get("redirect_uri");
 
-                var url = redirect_uri + '?state=' + state + '&code=' + token;
+                // var url = redirect_uri + '?state=' + state + '&code=' + token;
+                var url = "https://github.com";
                 window.location.href = url;
 
             })

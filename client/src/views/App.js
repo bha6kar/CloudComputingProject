@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginForm from '../components/LoginForm/LoginForm';
-import DistrictLogo from '../logoAssets/Logo-Black-Small.png';
-import Alexa from '../logoAssets/final-alexa-badge.png';
+import Logo from '../logoAssets/logo_large.png';
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-body">
           <div className="Login-form">
-            <img className="District-logo" src={DistrictLogo} alt="District-logo" />
+
             <LoginForm />
           </div>
-          <img className="Alexa-image" src={Alexa} alt="Amazon-Alexa" />
+          <img className="Qmul-image" src={Logo} alt="Qmul-Logo" />
         </div>
       </div>
     );
