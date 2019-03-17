@@ -1,7 +1,13 @@
-import mongoose, {Schema} from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 import validator from 'validator'
 
-const UserSchema = new Schema ({
+const UserSchema = new Schema({
+    username: {
+        type: String,
+        unique: true,
+        required: [true, 'Username is required!'],
+        trim: true
+    },
     email: {
         type: String,
         unique: true,
@@ -14,7 +20,7 @@ const UserSchema = new Schema ({
             message: '{VALUE} is not a valid email!',
         },
     },
-    
+
     password: {
         type: String,
         required: [true, 'Password is required!'],

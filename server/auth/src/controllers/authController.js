@@ -19,8 +19,8 @@ export const makePayload = (userId) => {
 
 export const signUp = async (req, res) => {
     try {
-        if (!req.body.email && !req.body.password) throwError(400, 'Incorrect Request', 'Email or password is missing')()
-        const { email, password } = req.body
+        if (!req.body.username && !req.body.email && !req.body.password) throwError(400, 'Incorrect Request', 'Username or Email or password is missing')()
+        const { username, email, password } = req.body
 
         await User
             .findOne({ email: email })
@@ -36,7 +36,7 @@ export const signUp = async (req, res) => {
             )
 
         const user = await User
-            .create({ email: email, password: hashedPass })
+            .create({ username: username, email: email, password: hashedPass })
             .then(
                 throwIf(r => !r, 500, 'Mongo error', 'User not created'),
                 throwError(500, 'Mongo error'))
