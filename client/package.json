@@ -1,6 +1,8 @@
 {
   "name": "alexa-skills-web",
   "version": "0.1.0",
+  "author": "Bhaskar Saikia <bha6kar@gmail.com>",
+  "license": "QMUL",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
