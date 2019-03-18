@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken'
 import fs from 'fs'
-import {throwError, throwIf, sendError} from './errorHandling'
+import { throwError, throwIf, sendError } from './errorHandling'
 const publicKey = fs.readFileSync(__dirname + '/../../keys/jwtRS512.key.pub', 'utf8')
 
-export const checkToken = async (req, res, next) => {
+export const checkToken = async (req, res) => {
     try {
         const token = parseHeaders(req)
-        if(token !== null) throwError(401, 'Invalid request', 'No auth token supplied')
+        if (token !== null) throwError(401, 'Invalid request', 'No auth token supplied')
         console.log(token)
         await jwt
             .verify(token, publicKey)
@@ -14,9 +14,8 @@ export const checkToken = async (req, res, next) => {
                 throwIf(r => !r, 401, 'Forbidden', 'Auth token is invalid'),
                 throwError(500, 'JWT ERROR')
             )
-            
+
         req.auth = true
-        next()
     } catch (err) {
         console.error(err)
         sendError(res)(err)
@@ -32,5 +31,3 @@ const parseHeaders = (req) => {
     }
     return token
 }
-
-export default checkToken

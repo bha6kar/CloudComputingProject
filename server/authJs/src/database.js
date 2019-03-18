@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
-import env from 'dotenv/config'
 
 const uri = process.env.MONGO_URI
+console.log(uri)
 
 mongoose.Promise = Promise
 
 mongoose.connect(uri, { useNewUrlParser: true }).then(
-    () => {console.log('connected to db')}
+    () => { console.log('connected to db') }
     // err => {console.log('failed to connect')}
 )
 

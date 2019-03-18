@@ -1,4 +1,4 @@
-import { signInAPI } from "../app/api"
+import { auth } from "../app/api"
 const LOGIN_PENDING = 'LOGIN_PENDING';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_ERROR = 'LOGIN_ERROR';
@@ -31,7 +31,7 @@ export function login(email, password) {
         dispatch(setLoginSuccess(false));
         dispatch(setLoginError(null));
 
-        signInAPI(email, password)
+        auth(email, password)
             .then(success => {
 
                 var token = success.data.refresh_token;

@@ -4,6 +4,36 @@ import User from '../models/usersModel'
 import fs from 'fs'
 import { sendError, sendSuccess, throwError, throwIf } from '../utils/errorHandling'
 const privateKEY = fs.readFileSync(__dirname + '/../../keys/jwtRS512.key', 'utf8')
+const publicKey = fs.readFileSync(__dirname + '/../../keys/jwtRS512.key.pub', 'utf8')
+
+export const checkToken = async (req, res, next) => {
+
+    const token = parseHeaders(req)
+    if (token !== null) throwError(401, 'Invalid request', 'No auth token supplied')
+    console.log(token)
+    await jwt.verify(token, publicKey), function (err, decoded) {
+        if (err) {
+            console.log("error")
+
+            res.json({ status: "error", message: err.message, data: null });
+        } else {
+            // add user id to request
+            console.log("here")
+            req.auth = true
+            next()
+        }
+        console.log('axc')
+    }
+}
+const parseHeaders = (req) => {
+    let token = req.headers['authorization'] || null
+    if (token !== null) {
+        if (token.startsWith('Bearer ')) {
+            token = token.slice(7, token.length)
+        }
+    }
+    return token
+}
 
 let signOptions = {
     issuer: 'authService',

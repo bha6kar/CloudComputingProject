@@ -1,17 +1,17 @@
-FROM node:10-alpine
+FROM python:3.7
 
 WORKDIR /usr/src/app
 
-RUN npm install --global yarn
+COPY requirements.txt requirements.txt
 
-COPY package*.json ./
-
-RUN yarn install
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE 3000
+RUN useradd -ms /bin/bash todo
+USER todo
 
-RUN yarn run build
+EXPOSE 4000
 
-CMD [ "yarn", "start" ]
+ENTRYPOINT ["python","index.py"]

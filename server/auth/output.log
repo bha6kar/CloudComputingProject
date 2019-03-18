@@ -1,0 +1,61 @@
+2019-03-18 16:13:54,145 - root - INFO - running environment: development
+2019-03-18 16:13:54,821 - root - INFO - running environment: development
+2019-03-18 17:02:28,326 - root - INFO - running environment: development
+2019-03-18 17:02:28,906 - root - INFO - running environment: development
+2019-03-18 17:43:43,168 - root - INFO - running environment: development
+2019-03-18 17:43:43,695 - root - INFO - running environment: development
+2019-03-18 17:46:17,048 - root - INFO - running environment: development
+2019-03-18 17:46:17,562 - root - INFO - running environment: development
+2019-03-18 17:48:09,847 - root - INFO - running environment: development
+2019-03-18 17:48:10,309 - root - INFO - running environment: development
+2019-03-18 17:53:32,889 - root - INFO - running environment: development
+2019-03-18 17:53:33,338 - root - INFO - running environment: development
+2019-03-18 17:58:34,912 - root - INFO - running environment: development
+2019-03-18 17:58:35,354 - root - INFO - running environment: development
+2019-03-18 18:35:12,259 - root - INFO - running environment: development
+2019-03-18 18:35:12,728 - root - INFO - running environment: development
+2019-03-18 18:35:41,165 - app.controllers.user - DEBUG - {'password': '$2b$12$lFCmrUOiK4Xga0Qy2cSO5Ohjkw7sxKATXeUwisPTWdMW.JeZ/6RVS', 'name': 'me', 'email': 'ayd@admin.com'}
+2019-03-18 18:45:57,738 - root - INFO - running environment: development
+2019-03-18 18:45:58,172 - root - INFO - running environment: development
+2019-03-18 19:10:03,851 - root - INFO - running environment: development
+2019-03-18 19:10:04,308 - root - INFO - running environment: development
+2019-03-18 19:11:52,341 - root - INFO - running environment: development
+2019-03-18 19:11:52,946 - root - INFO - running environment: development
+2019-03-18 19:12:41,510 - root - INFO - running environment: development
+2019-03-18 19:12:41,946 - root - INFO - running environment: development
+2019-03-18 19:13:28,430 - root - INFO - running environment: development
+2019-03-18 19:13:28,872 - root - INFO - running environment: development
+2019-03-18 19:15:18,029 - app.controllers.user - DEBUG - None
+2019-03-18 19:15:28,318 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 19:17:42,505 - root - INFO - running environment: development
+2019-03-18 19:17:42,968 - root - INFO - running environment: development
+2019-03-18 19:17:52,031 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 20:04:01,014 - root - INFO - running environment: development
+2019-03-18 20:04:01,761 - root - INFO - running environment: development
+2019-03-18 20:04:28,565 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 20:23:13,168 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 20:24:48,273 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 20:24:48,376 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 20:33:23,371 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 21:08:35,715 - root - INFO - running environment: development
+2019-03-18 21:08:48,070 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 21:09:42,644 - root - INFO - running environment: development
+2019-03-18 21:10:08,295 - root - INFO - running environment: development
+2019-03-18 21:10:11,995 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 21:14:29,579 - root - INFO - running environment: development
+2019-03-18 21:14:36,208 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 21:17:30,767 - root - INFO - running environment: development
+2019-03-18 21:19:09,076 - root - INFO - running environment: development
+2019-03-18 21:22:11,439 - root - INFO - running environment: development
+2019-03-18 21:22:12,224 - root - INFO - running environment: development
+2019-03-18 21:22:38,828 - root - INFO - running environment: development
+2019-03-18 21:22:43,659 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 21:39:28,090 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 21:53:51,902 - app.controllers.user - DEBUG - {'name': 'met', 'email': 'ayud@admin.com', 'password': b'$2b$12$/b4hnBrWMQwrYNzGya9rgOTEcFIAz61IK0SRAWhKJirO9KkiIT97q'}
+2019-03-18 22:06:03,205 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 22:06:03,255 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 22:06:06,655 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 22:06:08,776 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 22:06:08,831 - root - ERROR - 404 Not Found: The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.
+2019-03-18 23:14:51,424 - root - INFO - running environment: development
+2019-03-18 23:14:52,149 - root - INFO - running environment: development
