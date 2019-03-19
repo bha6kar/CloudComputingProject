@@ -23,7 +23,7 @@ categories_url_template = 'https://data.police.uk/api/crime-categories?date={dat
 
 
 @app.route('/crimestat',  methods=['GET'])
-@jwt_required
+# @jwt_required
 def crimechart():
     my_latitude = request.args.get('lat', '51.52369')
     my_longitude = request.args.get('lng', '-0.0395857')

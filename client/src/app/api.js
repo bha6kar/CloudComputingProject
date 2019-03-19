@@ -1,11 +1,15 @@
 import axiosLib from 'axios';
-var querystring = require('querystring');
 
+var querystring = require('querystring');
+var cors = require('cors');
 const axios = axiosLib.create({
   baseURL: 'http://0.0.0.0:4000/',
   timeout: 10000,
   headers: {
-    "content-type": "application/json",
+    "content-type": 'application/json;charset=UTF-8',
+    'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+    "Access-Control-Allow-Origin": "*",
+    'mode': 'no-cors',
   },
 });
 
@@ -16,12 +20,12 @@ export const signInAPI = (email, password) => {
     "password": password,
   };
 
-  return axios.post('/auth', JSON.stringify({ data }));
-};
+  return axios.post('/auth', JSON.stringify({ ...data }));
+}
 
 export const auth = (email, password) => {
 
-  return fetch('http://0.0.0.0:4000/auth', {
+  return fetch('http://0.0.0.0:4000/login', {
     headers: {
       'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
       'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'

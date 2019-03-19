@@ -6,6 +6,7 @@ from flask_jwt_extended import (create_access_token, create_refresh_token,
 from app import app, mongo, flask_bcrypt, jwt
 from app.schemas import validate_user
 import logger
+from urllib.parse import parse_qs
 
 ROOT_PATH = os.environ.get('ROOT_PATH')
 LOG = logger.get_root_logger(
@@ -44,7 +45,9 @@ def auth_user():
 @app.route('/login', methods=['POST'])
 def login():
     ''' auth endpoint '''
-    data = validate_user(request.get_json())
+    header_data = parse_qs(request)
+    print(request)
+    data = validate_user(header_data)
     if data['ok']:
         data = data['data']
         user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})

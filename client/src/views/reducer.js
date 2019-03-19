@@ -1,4 +1,8 @@
+import { signInAPI } from "../app/api"
 import { auth } from "../app/api"
+const axios = require('axios')
+
+
 const LOGIN_PENDING = 'LOGIN_PENDING';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_ERROR = 'LOGIN_ERROR';
@@ -31,18 +35,30 @@ export function login(email, password) {
         dispatch(setLoginSuccess(false));
         dispatch(setLoginError(null));
 
-        auth(email, password)
+        signInAPI(email, password)
             .then(success => {
+                var token = 'Bearer ' + success.data.data.token;
+                var name = success.data.data.name;
+                console.log(token);
 
-                var token = success.data.refresh_token;
-                var url_string = window.location.href;
-                var initial_url = new URL(url_string);
-                var state = initial_url.searchParams.get("state");
-                var redirect_uri = initial_url.searchParams.get("redirect_uri");
+                const axiosInstance = axios.create({
+                    baseURL: 'http://0.0.0.0:4000/',
+                    timeout: 5000,
+                    headers: {
+                        Authorization: token,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                window.location.href = "http://0.0.0.0:4000/crimestat?Authorization=" + token;
+                /*   axiosInstance.get('/crimestat')
+                      .then(function (response) { window.location = "http://0.0.0.0:4000/crimestat" })
+                      .catch(err => {
+                          console.log(err.request._header)
+                      }) */
 
                 // var url = redirect_uri + '?state=' + state + '&code=' + token;
-                var url = "https://github.com";
-                window.location.href = url;
+                var url = "http://0.0.0.0/crimestat";
+                // window.location.href = url;
 
             })
             .catch(err => {
