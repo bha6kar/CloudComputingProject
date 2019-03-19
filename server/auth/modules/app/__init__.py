@@ -1,4 +1,3 @@
-
 ''' flask app with mongo '''
 import os
 import json
@@ -33,5 +32,6 @@ mongo = PyMongo(app)
 flask_bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 app.json_encoder = JSONEncoder
-from app.apis import *
+
 from app.controllers import *  # eslint: disable=W0401,C0413
+from app.apis import *	# eslint: disable=W0401,C0413
