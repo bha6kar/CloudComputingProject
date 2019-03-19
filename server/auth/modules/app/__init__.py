@@ -34,4 +34,4 @@ jwt = JWTManager(app)
 app.json_encoder = JSONEncoder
 
 from app.controllers import *  # eslint: disable=W0401,C0413
-from app.apis import *	# eslint: disable=W0401,C0413
+from app.apis import *	
