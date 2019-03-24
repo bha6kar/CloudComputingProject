@@ -1,4 +1,2 @@
-openssl genrsa -aes128 -out cert.key 4096
-openssl rsa -in cert.key -pubout -out cert.pub
-cat cert.key
-cat cert.pub
+openssl genrsa -aes128 -out prv.pem 2048
+openssl rsa -in prv.pem -pubout -out pub.pem

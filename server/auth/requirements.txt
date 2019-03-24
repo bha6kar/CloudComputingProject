@@ -7,3 +7,4 @@ Flask_Bcrypt==0.7.1
 jsonschema==2.5.1
 plotly
 requests-cache
+pycryptodome

@@ -50,6 +50,7 @@ def login():
     data = validate_user(header_data)
     if data['ok']:
         data = data['data']
+
         user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
         LOG.debug(user)
         if user and flask_bcrypt.check_password_hash(user['password'], data['password']):
@@ -71,10 +72,28 @@ def register():
     data = validate_user(request.get_json())
     if data['ok']:
         data = data['data']
+        password = data['password']
         data['password'] = flask_bcrypt.generate_password_hash(
             data['password'])
-        mongo.db.users.insert_one(data)
-        return jsonify({'ok': True, 'message': 'User created successfully!'}), 200
+        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+        # LOG.debug(user)
+        if bool(user):
+            return jsonify({'ok': False, 'message': 'User already exist with same email'}), 400
+        else:
+            mongo.db.users.insert_one(data)
+            user = {}
+            user['name'] = data['name']
+            del data['name']
+            del data['_id']
+            data['password'] = password
+            access_token = create_access_token(identity=data)
+            refresh_token = create_refresh_token(identity=data)
+            data['token'] = access_token
+            data['refresh'] = refresh_token
+            del data['password']
+            data['name'] = user['name']
+            # LOG.debug(data)
+            return jsonify({'ok': True, 'data': data, 'message': 'User created successfully!'}), 200
     else:
         return jsonify({'ok': False, 'message': 'Bad request parameters: {}'.format(data['message'])}), 400
 

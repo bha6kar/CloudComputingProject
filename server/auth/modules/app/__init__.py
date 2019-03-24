@@ -8,6 +8,7 @@ from flask_pymongo import PyMongo
 from flask_jwt_extended import JWTManager
 from flask_bcrypt import Bcrypt
 from pymongo import MongoClient
+from Crypto.PublicKey import RSA
 
 
 class JSONEncoder(json.JSONEncoder):
@@ -25,8 +26,13 @@ class JSONEncoder(json.JSONEncoder):
 
 # create the flask object
 app = Flask(__name__)
+RSA_PUBLIC = RSA.import_key(open("pub.pem", "r").read())
+RSA_PRIVATE = RSA.import_key(open("prv.pem").read(), passphrase='secret')
 app.config['MONGO_URI'] = os.environ.get('DB')
 app.config['JWT_SECRET_KEY'] = os.environ.get('SECRET')
+app.config['JWT_PUBLIC_KEY'] = RSA_PUBLIC
+app.config['JWT_PRIVATE_KEY'] = RSA_PRIVATE
+# app.config['JWT_ALGORITHM'] = 'RS512'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 mongo = PyMongo(app)
 flask_bcrypt = Bcrypt(app)
