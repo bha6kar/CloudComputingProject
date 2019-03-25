@@ -9,6 +9,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from bson.objectid import ObjectId
 from app import app, mongo
 import logger
+import pymongo
 from app.schemas import validate_code
 ROOT_PATH = os.environ.get('ROOT_PATH')
 LOG = logger.get_root_logger(
@@ -27,8 +28,14 @@ history_url = 'http://apilayer.net/api/historical?access_key={key}&date={date}&c
 quote_url = 'https://api.exchangeratesapi.io/latest?base={base}'
 history_time_url = 'https://api.exchangeratesapi.io/history?start_at={start}&end_at={end}&symbols={symbols}&base={base}'
 market_url = 'https://forex.1forge.com/1.0.3/market_status?api_key={key}'
-MY_API_KEY_FOREX = os.environ.get('MY_API_KEY_FOREX')
-MY_API_KEY_HIST = os.environ.get('MY_API_KEY_HIST')
+MY_API_KEY_FOREX = app.config['MY_API_KEY_FOREX']
+MY_API_KEY_HIST = app.config['MY_API_KEY_HIST']
+
+LOG.debug('key:' + MY_API_KEY_FOREX)
+
+mongo_client = pymongo.MongoClient(
+    'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/', maxPoolSize=50, connect=False)
+db = pymongo.database.Database(mongo_client, 'bhaskarDB')
 
 
 @app.route('/exchange', methods=['GET'])
@@ -37,8 +44,8 @@ def convert():
     fromCurrency = request.args.get('from')
     toCurrency = request.args.get('to')
     qty = request.args.get('qty')
-    c = mongo.db.country_data.find_one({'Code': fromCurrency}, {"_id": 0})
-    t = mongo.db.country_data.find_one({'Code': toCurrency}, {"_id": 0})
+    c = db.country_data.find_one({'Code': fromCurrency}, {"_id": 0})
+    t = db.country_data.find_one({'Code': toCurrency}, {"_id": 0})
     url = convert_url.format(
         fromCurrency=fromCurrency, toCurrency=toCurrency, qty=qty, key=MY_API_KEY_FOREX)
     resp = requests.get(url)
@@ -158,13 +165,13 @@ def entry_code():
     if data['ok']:
         data = data['data']
 
-        c = mongo.db.country_data.find_one(
+        c = db.country_data.find_one(
             {'Country': data['Country']}, {"_id": 0})
         # LOG.debug(user)
         if bool(c):
             return jsonify({'ok': False, 'message': 'Code already exist with same Country name'}), 400
         else:
-            mongo.db.country_data.insert_one(data)
+            db.country_data.insert_one(data)
 
             # LOG.debug(data)
             return jsonify({'ok': True, 'data': data, 'message': 'Country code added successfully!'}), 200
@@ -179,7 +186,7 @@ def code():
     if request.method == 'GET':
         query = request.args
         LOG.debug(query)
-        data = mongo.db.country_data.find_one(
+        data = db.country_data.find_one(
             {'Country': query['Country']}, {"_id": 0})
         if bool(data):
             user = {}
@@ -193,7 +200,7 @@ def code():
     data = request.get_json()
     if request.method == 'DELETE':
         if data.get('Country', None) is not None:
-            db_response = mongo.db.country_data.delete_one(
+            db_response = db.country_data.delete_one(
                 {'Country': data['Country']})
             if db_response.deleted_count == 1:
                 response = {'ok': True, 'message': 'record deleted'}
@@ -206,7 +213,7 @@ def code():
     if request.method == 'PATCH':
         data = request.get_json()
         LOG.debug(data['Country'])
-        user = mongo.db.country_data.find_one(
+        user = db.country_data.find_one(
             {'Country': data['Country']}, {"_id": 0})
 
         if 'CountryCode' in data.keys() and 'Code' in data.keys():
@@ -222,7 +229,7 @@ def code():
                 newvalues = {"$set": {"Currency": data['Currency']}}
 
         if bool(user):
-            mongo.db.country_data.update_one(user, newvalues)
+            db.country_data.update_one(user, newvalues)
             return jsonify({'ok': True, 'message': 'User updated successfully!'}), 200
         else:
             response = {'ok': True, 'message': 'no record found'}

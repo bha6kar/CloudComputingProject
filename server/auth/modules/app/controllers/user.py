@@ -7,10 +7,15 @@ from app import app, mongo, flask_bcrypt, jwt
 from app.schemas import validate_user
 import logger
 from urllib.parse import parse_qs
+import pymongo
 
 ROOT_PATH = os.environ.get('ROOT_PATH')
 LOG = logger.get_root_logger(
     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
+
+mongo_client = pymongo.MongoClient(
+    'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/', maxPoolSize=50, connect=False)
+db = pymongo.database.Database(mongo_client, 'bhaskarDB')
 
 
 @jwt.unauthorized_loader
@@ -27,7 +32,7 @@ def auth_user():
     data = validate_user(request.get_json())
     if data['ok']:
         data = data['data']
-        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+        user = db.users.find_one({'email': data['email']}, {"_id": 0})
         LOG.debug(user)
         if user and flask_bcrypt.check_password_hash(user['password'], data['password']):
             del user['password']
@@ -51,7 +56,7 @@ def login():
     if data['ok']:
         data = data['data']
 
-        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+        user = db.users.find_one({'email': data['email']}, {"_id": 0})
         LOG.debug(user)
         if user and flask_bcrypt.check_password_hash(user['password'], data['password']):
             del user['password']
@@ -75,12 +80,12 @@ def register():
         password = data['password']
         data['password'] = flask_bcrypt.generate_password_hash(
             data['password'])
-        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+        user = db.users.find_one({'email': data['email']}, {"_id": 0})
         # LOG.debug(user)
         if bool(user):
             return jsonify({'ok': False, 'message': 'User already exist with same email'}), 400
         else:
-            mongo.db.users.insert_one(data)
+            db.users.insert_one(data)
             user = {}
             user['name'] = data['name']
             del data['name']
@@ -116,13 +121,13 @@ def user():
     if request.method == 'GET':
         query = request.args
         LOG.debug(query)
-        data = mongo.db.users.find_one({'email': query['email']}, {"_id": 0})
+        data = db.users.find_one({'email': query['email']}, {"_id": 0})
         if bool(data):
             user = {}
             # for i in data:
             user['name'] = data['name']
             user['email'] = data['email']
-            # data = list(mongo.db.users.find())
+            # data = list(db.users.find())
         # data = {'data': data}
             LOG.debug(data)
 
@@ -133,7 +138,7 @@ def user():
     data = request.get_json()
     if request.method == 'DELETE':
         if data.get('email', None) is not None:
-            db_response = mongo.db.users.delete_one({'email': data['email']})
+            db_response = db.users.delete_one({'email': data['email']})
             if db_response.deleted_count == 1:
                 response = {'ok': True, 'message': 'record deleted'}
             else:
@@ -146,7 +151,7 @@ def user():
         # if data.get('query', {}) != {}:
         data = request.get_json()
 
-        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+        user = db.users.find_one({'email': data['email']}, {"_id": 0})
 
         if 'password' in data.keys() and 'name' in data.keys():
             data['password'] = flask_bcrypt.generate_password_hash(
@@ -162,7 +167,7 @@ def user():
                 newvalues = {"$set": {"name": data['name']}}
 
         if bool(user):
-            mongo.db.users.update_one(user, newvalues)
+            db.users.update_one(user, newvalues)
             return jsonify({'ok': True, 'message': 'User updated successfully!'}), 200
         else:
             response = {'ok': True, 'message': 'no record found'}
