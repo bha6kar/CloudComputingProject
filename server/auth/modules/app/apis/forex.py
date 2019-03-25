@@ -32,12 +32,13 @@ MY_API_KEY_HIST = os.environ.get('MY_API_KEY_HIST')
 
 
 @app.route('/exchange', methods=['GET'])
+@jwt_required
 def convert():
     fromCurrency = request.args.get('from')
     toCurrency = request.args.get('to')
     qty = request.args.get('qty')
-    c = mongo.db.data.find_one({'Code': fromCurrency}, {"_id": 0})
-    t = mongo.db.data.find_one({'Code': toCurrency}, {"_id": 0})
+    c = mongo.db.country_data.find_one({'Code': fromCurrency}, {"_id": 0})
+    t = mongo.db.country_data.find_one({'Code': toCurrency}, {"_id": 0})
     url = convert_url.format(
         fromCurrency=fromCurrency, toCurrency=toCurrency, qty=qty, key=MY_API_KEY_FOREX)
     resp = requests.get(url)
@@ -55,6 +56,7 @@ def convert():
 
 
 @app.route('/symbol', methods=['GET'])
+@jwt_required
 def symbol():
 
     url = symbol_url.format(key=MY_API_KEY_FOREX)
@@ -68,6 +70,7 @@ def symbol():
 
 
 @app.route('/status', methods=['GET'])
+@jwt_required
 def market_status():
 
     url = market_url.format(key=MY_API_KEY_FOREX)
@@ -80,6 +83,7 @@ def market_status():
 
 
 @app.route('/quotes', methods=['GET'])
+@jwt_required
 def quotes():
     pairs = request.args.get('pairs')
 
@@ -96,6 +100,7 @@ def quotes():
 
 
 @app.route('/quotebase', methods=['GET'])
+@jwt_required
 def quoteBase():
     base = request.args.get('base')
 
@@ -110,6 +115,7 @@ def quoteBase():
 
 
 @app.route('/history', methods=['GET'])
+@jwt_required
 def history():
     date = request.args.get('date')
     currency = request.args.get('currency')
@@ -126,6 +132,7 @@ def history():
 
 
 @app.route('/histCurrency', methods=['GET'])
+@jwt_required
 def historical_data():
     start = request.args.get('start')
     end = request.args.get('end')
@@ -144,21 +151,23 @@ def historical_data():
 
 
 @app.route('/entryCode', methods=['POST'])
+@jwt_required
 def entry_code():
     ''' create or add new code '''
     data = validate_code(request.get_json())
     if data['ok']:
         data = data['data']
 
-        c = mongo.db.data.find_one({'Country': data['Country']}, {"_id": 0})
+        c = mongo.db.country_data.find_one(
+            {'Country': data['Country']}, {"_id": 0})
         # LOG.debug(user)
         if bool(c):
             return jsonify({'ok': False, 'message': 'Code already exist with same Country name'}), 400
         else:
-            mongo.db.data.insert_one(data)
+            mongo.db.country_data.insert_one(data)
 
             # LOG.debug(data)
-            return jsonify({'ok': True, 'data': data, 'message': 'User created successfully!'}), 200
+            return jsonify({'ok': True, 'data': data, 'message': 'Country code added successfully!'}), 200
     else:
         return jsonify({'ok': False, 'message': 'Bad request parameters: {}'.format(data['message'])}), 400
 
@@ -170,15 +179,12 @@ def code():
     if request.method == 'GET':
         query = request.args
         LOG.debug(query)
-        data = mongo.db.users.find_one({'email': query['email']}, {"_id": 0})
+        data = mongo.db.country_data.find_one(
+            {'Country': query['Country']}, {"_id": 0})
         if bool(data):
             user = {}
-            # for i in data:
-            user['name'] = data['name']
-            user['email'] = data['email']
-            # data = list(mongo.db.users.find())
-        # data = {'data': data}
-            LOG.debug(data)
+            user['Country'] = data['Country']
+            user['Code'] = data['Code']
 
             return jsonify({'ok': True, 'data': user}), 200
         else:
@@ -186,8 +192,9 @@ def code():
 
     data = request.get_json()
     if request.method == 'DELETE':
-        if data.get('email', None) is not None:
-            db_response = mongo.db.users.delete_one({'email': data['email']})
+        if data.get('Country', None) is not None:
+            db_response = mongo.db.country_data.delete_one(
+                {'Country': data['Country']})
             if db_response.deleted_count == 1:
                 response = {'ok': True, 'message': 'record deleted'}
             else:
@@ -197,26 +204,25 @@ def code():
             return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
 
     if request.method == 'PATCH':
-        # if data.get('query', {}) != {}:
         data = request.get_json()
+        LOG.debug(data['Country'])
+        user = mongo.db.country_data.find_one(
+            {'Country': data['Country']}, {"_id": 0})
 
-        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+        if 'CountryCode' in data.keys() and 'Code' in data.keys():
 
-        if 'password' in data.keys() and 'name' in data.keys():
-            data['password'] = flask_bcrypt.generate_password_hash(
-                data['password'])
-            newvalues = {"$set": {"name": data['name'],
-                                  "password": data['password']}}
+            newvalues = {"$set": {"Country": data['Country'],
+                                  "Code": data['Code']}}
         else:
-            if 'password' in data.keys():
-                data['password'] = flask_bcrypt.generate_password_hash(
-                    data['password'])
-                newvalues = {"$set": {"password": data['password']}}
-            if 'name' in data.keys():
-                newvalues = {"$set": {"name": data['name']}}
+            if 'CountryCode' in data.keys():
+                newvalues = {"$set": {"CountryCode": data['CountryCode']}}
+            if 'Code' in data.keys():
+                newvalues = {"$set": {"Code": data['Code']}}
+            if 'Currency' in data.keys():
+                newvalues = {"$set": {"Currency": data['Currency']}}
 
         if bool(user):
-            mongo.db.users.update_one(user, newvalues)
+            mongo.db.country_data.update_one(user, newvalues)
             return jsonify({'ok': True, 'message': 'User updated successfully!'}), 200
         else:
             response = {'ok': True, 'message': 'no record found'}
