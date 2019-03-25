@@ -14,6 +14,8 @@ ROOT_PATH = os.environ.get('ROOT_PATH')
 LOG = logger.get_root_logger(
     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
+# app.config.from_object('config')
+# app.config.from_pyfile('config.py')
 
 requests_cache.install_cache(
     'weather_api_cache', backend='sqlite', expire_after=36000)
@@ -22,8 +24,10 @@ wather_url = 'http://samples.openweathermap.org/data/2.5/weather?q=London&appid=
 wather_url_apixu = 'http://api.apixu.com/v1/current.json?key={api_key}&q={city}&lang={language}'
 weather_url_forecast = 'http://api.apixu.com/v1/forecast.json?key={api_key}&q={city}&days={days}&lang={language}'
 
+# MY_API_KEY = app.config['MY_API_KEY']
 
-@app.route('/weatherCity',  methods=['GET'])
+
+@app.route('/weatherCity', methods=['GET'])
 @jwt_required
 def weatherCity():
 
@@ -36,7 +40,7 @@ def weatherCity():
         print(respons.reason)
 
 
-@app.route('/cityWeather',  methods=['GET'])
+@app.route('/cityWeather', methods=['GET'])
 @jwt_required
 def weather():
 
@@ -55,7 +59,7 @@ def weather():
         print(respons.reason)
 
 
-@app.route('/forecast',  methods=['GET'])
+@app.route('/forecast', methods=['GET'])
 @jwt_required
 def weatherForecast():
 

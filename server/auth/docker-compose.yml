@@ -11,7 +11,8 @@ services:
       - ENV=development
       - PORT=4000
       - DB=mongodb://mongodb:27017/bhaskarDB
-
+      - MY_API_KEY_FOREX=vBNPGoabV5FyTlgv1WA1IuKPX5ZaybbJ
+      - MY_API_KEY_HIST=a396917c6b46215ad0578d2312ad6f10
       - SECRET='secret-key'
   mongodb:
     image: mongo:latest
