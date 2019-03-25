@@ -115,8 +115,20 @@ def user():
     ''' route read user '''
     if request.method == 'GET':
         query = request.args
-        data = mongo.db.users.find_one(query, {"_id": 0})
-        return jsonify({'ok': True, 'data': data}), 200
+        LOG.debug(query)
+        data = mongo.db.users.find_one({'email': query['email']}, {"_id": 0})
+        if bool(data):
+            user = {}
+            # for i in data:
+            user['name'] = data['name']
+            user['email'] = data['email']
+            # data = list(mongo.db.users.find())
+        # data = {'data': data}
+            LOG.debug(data)
+
+            return jsonify({'ok': True, 'data': user}), 200
+        else:
+            return jsonify({'ok': False, 'message': 'No user exist with this mail'}), 400
 
     data = request.get_json()
     if request.method == 'DELETE':
@@ -131,9 +143,29 @@ def user():
             return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
 
     if request.method == 'PATCH':
-        if data.get('query', {}) != {}:
-            mongo.db.users.update_one(
-                data['query'], {'$set': data.get('payload', {})})
-            return jsonify({'ok': True, 'message': 'record updated'}), 200
+        # if data.get('query', {}) != {}:
+        data = request.get_json()
+
+        user = mongo.db.users.find_one({'email': data['email']}, {"_id": 0})
+
+        if 'password' in data.keys() and 'name' in data.keys():
+            data['password'] = flask_bcrypt.generate_password_hash(
+                data['password'])
+            newvalues = {"$set": {"name": data['name'],
+                                  "password": data['password']}}
         else:
-            return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
+            if 'password' in data.keys():
+                data['password'] = flask_bcrypt.generate_password_hash(
+                    data['password'])
+                newvalues = {"$set": {"password": data['password']}}
+            if 'name' in data.keys():
+                newvalues = {"$set": {"name": data['name']}}
+
+        if bool(user):
+            mongo.db.users.update_one(user, newvalues)
+            return jsonify({'ok': True, 'message': 'User updated successfully!'}), 200
+        else:
+            response = {'ok': True, 'message': 'no record found'}
+            return jsonify(response)
+    else:
+        return jsonify({'ok': False, 'message': 'Bad request parameters: {}'.format(data['message'])}), 400
