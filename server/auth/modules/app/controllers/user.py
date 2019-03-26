@@ -9,9 +9,9 @@ import logger
 from urllib.parse import parse_qs
 import pymongo
 
-ROOT_PATH = os.environ.get('ROOT_PATH')
-LOG = logger.get_root_logger(
-    __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
+# ROOT_PATH = '.:/usr/src/app'
+# LOG = logger.get_root_logger(
+#     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
 mongo_client = pymongo.MongoClient(
     'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/', maxPoolSize=50, connect=False)
@@ -33,7 +33,6 @@ def auth_user():
     if data['ok']:
         data = data['data']
         user = db.users.find_one({'email': data['email']}, {"_id": 0})
-        LOG.debug(user)
         if user and flask_bcrypt.check_password_hash(user['password'], data['password']):
             del user['password']
             access_token = create_access_token(identity=data)
@@ -57,7 +56,6 @@ def login():
         data = data['data']
 
         user = db.users.find_one({'email': data['email']}, {"_id": 0})
-        LOG.debug(user)
         if user and flask_bcrypt.check_password_hash(user['password'], data['password']):
             del user['password']
             access_token = create_access_token(identity=data)
@@ -120,7 +118,6 @@ def user():
     ''' route read user '''
     if request.method == 'GET':
         query = request.args
-        LOG.debug(query)
         data = db.users.find_one({'email': query['email']}, {"_id": 0})
         if bool(data):
             user = {}
@@ -129,7 +126,6 @@ def user():
             user['email'] = data['email']
             # data = list(db.users.find())
         # data = {'data': data}
-            LOG.debug(data)
 
             return jsonify({'ok': True, 'data': user}), 200
         else:

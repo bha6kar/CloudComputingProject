@@ -11,9 +11,9 @@ from app import app
 import logger
 import pymongo
 from app.schemas import validate_code
-ROOT_PATH = os.environ.get('ROOT_PATH')
-LOG = logger.get_root_logger(
-    __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
+# ROOT_PATH = '.:/usr/src/app'
+# LOG = logger.get_root_logger(
+#     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
 requests_cache.install_cache(
     'exchange_api_cache', backend='sqlite', expire_after=36000)
@@ -31,7 +31,6 @@ market_url = 'https://forex.1forge.com/1.0.3/market_status?api_key={key}'
 MY_API_KEY_FOREX = app.config['MY_API_KEY_FOREX']
 MY_API_KEY_HIST = app.config['MY_API_KEY_HIST']
 
-LOG.debug('key:' + MY_API_KEY_FOREX)
 
 mongo_client = pymongo.MongoClient(
     'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/', maxPoolSize=50, connect=False)
@@ -148,7 +147,6 @@ def historical_data():
 
     url = history_time_url.format(
         start=start, end=end, base=base, symbols=symbols, key=MY_API_KEY_HIST)
-    LOG.debug(url)
     resp = requests.get(url)
     if resp.ok:
         response = resp.json()
@@ -185,7 +183,6 @@ def code():
     ''' route read user '''
     if request.method == 'GET':
         query = request.args
-        LOG.debug(query)
         data = db.country_data.find_one(
             {'Country': query['Country']}, {"_id": 0})
         if bool(data):
@@ -212,7 +209,6 @@ def code():
 
     if request.method == 'PATCH':
         data = request.get_json()
-        LOG.debug(data['Country'])
         user = db.country_data.find_one(
             {'Country': data['Country']}, {"_id": 0})
 

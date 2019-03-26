@@ -14,17 +14,16 @@ import logger  # noqa
 from app import app  # noqa
 
 # Create a logger object to log the info and debug
-LOG = logger.get_root_logger(os.environ.get(
-    'ROOT_LOGGER', 'root'), filename=os.path.join(ROOT_PATH, 'output.log'))
+# LOG = logger.get_root_logger(os.environ.get(
+#     'ROOT_LOGGER', 'root'), filename=os.path.join(ROOT_PATH, 'output.log'))
 
 # Port variable to run the server on.
-PORT = os.environ.get('PORT')
+PORT = '8080'
 
 
 @app.errorhandler(404)
 def not_found(error):
     """ error handler """
-    LOG.error(error)
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
@@ -49,6 +48,6 @@ def dummy_endpoint():
 
 
 if __name__ == '__main__':
-    LOG.info('running environment: %s', os.environ.get('ENV'))
-    app.config['DEBUG'] = os.environ.get('ENV') == 'development'
+    #LOG.info('running environment: %s', os.environ.get('ENV'))
+    app.config['DEBUG'] = 'development' == 'development'
     app.run(host='0.0.0.0', port=int(PORT))

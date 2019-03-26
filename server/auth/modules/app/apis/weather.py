@@ -10,9 +10,9 @@ from bson.objectid import ObjectId
 from app import app
 import logger
 
-ROOT_PATH = os.environ.get('ROOT_PATH')
-LOG = logger.get_root_logger(
-    __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
+# ROOT_PATH = '.:/usr/src/app'
+# LOG = logger.get_root_logger(
+#     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
 # app.config.from_object('config')
 # app.config.from_pyfile('config.py')
