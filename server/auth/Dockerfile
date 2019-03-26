@@ -12,6 +12,6 @@ COPY . .
 RUN useradd -ms /bin/bash todo
 USER todo
 
-EXPOSE 4000
+EXPOSE 8080
 
 ENTRYPOINT ["python","index.py"]
