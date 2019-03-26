@@ -32,13 +32,13 @@ app.config.from_pyfile('config.py')
 
 RSA_PUBLIC = RSA.import_key(open("pub.pem", "r").read())
 RSA_PRIVATE = RSA.import_key(open("prv.pem").read(), passphrase='secret')
-app.config['MONGO_URI'] = 'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/'
+# app.config['MONGO_URI'] = 'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/'
 app.config['JWT_SECRET_KEY'] = app.config['SECRET_KEY']
 app.config['JWT_PUBLIC_KEY'] = RSA_PUBLIC
 app.config['JWT_PRIVATE_KEY'] = RSA_PRIVATE
 # app.config['JWT_ALGORITHM'] = 'RS512'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
-mongo = PyMongo(app)
+# mongo = PyMongo(app)
 flask_bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 app.json_encoder = JSONEncoder
