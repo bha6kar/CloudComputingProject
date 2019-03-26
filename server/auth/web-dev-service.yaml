@@ -10,12 +10,9 @@ metadata:
   name: web-dev
 spec:
   ports:
-  - name: "4000"
-    port: 4000
-    targetPort: 4000
-  - name: "27018"
-    port: 27018
-    targetPort: 27017
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
   selector:
     io.kompose.service: web-dev
 status:

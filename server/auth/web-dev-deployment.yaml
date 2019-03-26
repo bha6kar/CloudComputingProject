@@ -10,8 +10,7 @@ metadata:
   name: web-dev
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
@@ -19,31 +18,10 @@ spec:
         io.kompose.service: web-dev
     spec:
       containers:
-      - env:
-        - name: DB
-          value: mongodb://mongodb:27017/bhaskarDB
-        - name: ENV
-          value: development
-        - name: MY_API_KEY_FOREX
-          value: vBNPGoabV5FyTlgv1WA1IuKPX5ZaybbJ
-        - name: MY_API_KEY_HIST
-          value: a396917c6b46215ad0578d2312ad6f10
-        - name: PORT
-          value: "4000"
-        - name: SECRET
-          value: '''secret-key'''
-        image: web-dev
+      - image: web-dev
         name: web-dev
         ports:
-        - containerPort: 4000
-        - containerPort: 27017
+        - containerPort: 8080
         resources: {}
-        volumeMounts:
-        - mountPath: /usr/src/app
-          name: web-dev-claim0
       restartPolicy: Always
-      volumes:
-      - name: web-dev-claim0
-        persistentVolumeClaim:
-          claimName: web-dev-claim0
 status: {}
