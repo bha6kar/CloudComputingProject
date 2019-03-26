@@ -22,7 +22,7 @@ http://104.154.145.98
 ### Client Side
 > **Deployment:** In **AWS Cloud** 
 ```sh
-http://s3.console.aws.amazon.com/s3/buckets/districttestabc/?region=eu-west-1&tab=properties
+http://s3.console.aws.amazon.com/s3/buckets/cloudcomputingclient/?region=eu-west-1&tab=properties
 ```
 * Reactjs
 * Nodejs
