@@ -5,3 +5,5 @@ gcloud config set compute/zone us-central1-b
 docker build -t gcr.io/${PROJECT_ID}/exchange-server:v1 .
 gcloud auth configure-docker
 docker push gcr.io/${PROJECT_ID}/exchange-server:v1
+
+gcloud container clusters create hello-cluster --num-nodes=3
