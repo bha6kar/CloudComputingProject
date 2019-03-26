@@ -17,8 +17,8 @@ import logger
 # app.config.from_object('config')
 # app.config.from_pyfile('config.py')
 
-requests_cache.install_cache(
-    'weather_api_cache', backend='sqlite', expire_after=36000)
+# requests_cache.install_cache(
+#     'weather_api_cache', backend='sqlite', expire_after=36000)
 
 wather_url = 'http://samples.openweathermap.org/data/2.5/weather?q=London&appid=b6907d289e10d714a6e88b30761fae22'
 wather_url_apixu = 'http://api.apixu.com/v1/current.json?key={api_key}&q={city}&lang={language}'

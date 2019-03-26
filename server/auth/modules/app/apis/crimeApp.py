@@ -15,8 +15,8 @@ import logger
 #     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
 
-requests_cache.install_cache(
-    'crimes_api_cache', backend='sqlite', expire_after=36000)
+# requests_cache.install_cache(
+#     'crimes_api_cache', backend='sqlite', expire_after=36000)
 
 crime_url_template = 'https://data.police.uk/api/crimes-street/all-crime?lat={lat}&lng={lng}&date={date}'
 categories_url_template = 'https://data.police.uk/api/crime-categories?date={date}'

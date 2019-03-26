@@ -15,8 +15,8 @@ from app.schemas import validate_code
 # LOG = logger.get_root_logger(
 #     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
-requests_cache.install_cache(
-    'exchange_api_cache', backend='sqlite', expire_after=36000)
+# requests_cache.install_cache(
+#     'exchange_api_cache', backend='sqlite', expire_after=36000)
 
 app.config.from_object('config')
 app.config.from_pyfile('config.py')
