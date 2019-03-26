@@ -1,0 +1,737 @@
+{
+	"info": {
+		"_postman_id": "8ef9a329-07b7-41fd-8198-e355d38ac237",
+		"name": "currency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "exchange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/exchange?from=GBP&to=USD&qty=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"exchange"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "GBP"
+						},
+						{
+							"key": "to",
+							"value": "USD"
+						},
+						{
+							"key": "qty",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exchange rate for USD to GBP",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/exchange?from=GBP&to=USD&qty=1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"exchange"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "GBP"
+								},
+								{
+									"key": "to",
+									"value": "USD"
+								},
+								{
+									"key": "qty",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "429"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 03:02:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"from Country\": {\n        \"Code\": \"GBP\",\n        \"Country\": \"South Georgia and the South Sandwich Islands\",\n        \"CountryCode\": \"GS\",\n        \"Currency\": \"Sterling\"\n    },\n    \"market_is_open\": true,\n    \"text\": \"1 GBP is worth 1.32032 USD\",\n    \"timestamp\": 1553472116,\n    \"to Country info\": {\n        \"Code\": \"USD\",\n        \"Country\": \"British Indian Ocean Territory\",\n        \"CountryCode\": \"IO\",\n        \"Currency\": \"USD\"\n    },\n    \"value\": 1.32032\n}"
+				}
+			]
+		},
+		{
+			"name": "quotes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/quotes?pairs=USDGBP",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"quotes"
+					],
+					"query": [
+						{
+							"key": "pairs",
+							"value": "USDGBP"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "quotes from USD to GBP ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/quotes?pairs=USDGBP",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"quotes"
+							],
+							"query": [
+								{
+									"key": "pairs",
+									"value": "USDGBP"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "market status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/status",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "historicalcurrency",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/histCurrency?start=2018-01-01&end=2018-09-01&currency=ILS,JPY&base=USD",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"histCurrency"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2018-01-01"
+						},
+						{
+							"key": "end",
+							"value": "2018-09-01"
+						},
+						{
+							"key": "currency",
+							"value": "ILS,JPY"
+						},
+						{
+							"key": "base",
+							"value": "USD"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "historicalcurrency with base currency = USD from 2018-01-01 to 2018-09-01 and for currency ILS,JPY",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/histCurrency?start=2018-01-01&end=2018-09-01&currency=ILS,JPY&base=USD",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"histCurrency"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2018-01-01"
+								},
+								{
+									"key": "end",
+									"value": "2018-09-01"
+								},
+								{
+									"key": "currency",
+									"value": "ILS,JPY"
+								},
+								{
+									"key": "base",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14425"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 02:32:23 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"base\": \"USD\",\n    \"end_at\": \"2018-09-01\",\n    \"rates\": {\n        \"2018-01-02\": {\n            \"ILS\": 3.4556983009,\n            \"JPY\": 112.1840033154\n        },\n        \"2018-01-03\": {\n            \"ILS\": 3.459036846,\n            \"JPY\": 112.2598353156\n        },\n        \"2018-01-04\": {\n            \"ILS\": 3.4461665976,\n            \"JPY\": 112.6564442603\n        },\n        \"2018-01-05\": {\n            \"ILS\": 3.4372768784,\n            \"JPY\": 113.2835201328\n        },\n        \"2018-01-08\": {\n            \"ILS\": 3.4416604026,\n            \"JPY\": 113.0376680865\n        },\n        \"2018-01-09\": {\n            \"ILS\": 3.4441837077,\n            \"JPY\": 112.562856185\n        },\n        \"2018-01-10\": {\n            \"ILS\": 3.4297031354,\n            \"JPY\": 111.4242828552\n        },\n        \"2018-01-11\": {\n            \"ILS\": 3.4229841059,\n            \"JPY\": 111.6668053591\n        },\n        \"2018-01-12\": {\n            \"ILS\": 3.4005108346,\n            \"JPY\": 111.1312515449\n        },\n        \"2018-01-15\": {\n            \"ILS\": 3.399609025,\n            \"JPY\": 110.621487334\n        },\n        \"2018-01-16\": {\n            \"ILS\": 3.4150449714,\n            \"JPY\": 110.7113654947\n        },\n        \"2018-01-17\": {\n            \"ILS\": 3.4557895599,\n            \"JPY\": 110.8006227977\n        },\n        \"2018-01-18\": {\n            \"ILS\": 3.4286881896,\n            \"JPY\": 111.2137310993\n        },\n        \"2018-01-19\": {\n            \"ILS\": 3.413871889,\n            \"JPY\": 110.599755202\n        },\n        \"2018-01-22\": {\n            \"ILS\": 3.4198872457,\n            \"JPY\": 110.8423890841\n        },\n        \"2018-01-23\": {\n            \"ILS\": 3.4188913381,\n            \"JPY\": 110.4988162299\n        },\n        \"2018-01-24\": {\n            \"ILS\": 3.4097312176,\n            \"JPY\": 109.3992875648\n        },\n        \"2018-01-25\": {\n            \"ILS\": 3.4036431047,\n            \"JPY\": 108.9062625937\n        },\n        \"2018-01-26\": {\n            \"ILS\": 3.3893534899,\n            \"JPY\": 109.3197169508\n        },\n        \"2018-01-29\": {\n            \"ILS\": 3.4034251555,\n            \"JPY\": 108.8537038533\n        },\n        \"2018-01-30\": {\n            \"ILS\": 3.3995652524,\n            \"JPY\": 108.6707994525\n        },\n        \"2018-01-31\": {\n            \"ILS\": 3.4055551096,\n            \"JPY\": 108.8544593401\n        },\n        \"2018-02-01\": {\n            \"ILS\": 3.4284453006,\n            \"JPY\": 109.6556705996\n        },\n        \"2018-02-02\": {\n            \"ILS\": 3.4339577329,\n            \"JPY\": 109.846301633\n        },\n        \"2018-02-05\": {\n            \"ILS\": 3.4414790997,\n            \"JPY\": 109.8633440514\n        },\n        \"2018-02-06\": {\n            \"ILS\": 3.4852786114,\n            \"JPY\": 109.473598832\n        },\n        \"2018-02-07\": {\n            \"ILS\": 3.4913276058,\n            \"JPY\": 109.2883773707\n        },\n        \"2018-02-08\": {\n            \"ILS\": 3.4951844597,\n            \"JPY\": 109.6229187071\n        },\n        \"2018-02-09\": {\n            \"ILS\": 3.5258697955,\n            \"JPY\": 108.8486922513\n        },\n        \"2018-02-12\": {\n            \"ILS\": 3.5243415151,\n            \"JPY\": 108.6438881187\n        },\n        \"2018-02-13\": {\n            \"ILS\": 3.5330414336,\n            \"JPY\": 107.6948025622\n        },\n        \"2018-02-14\": {\n            \"ILS\": 3.5370910269,\n            \"JPY\": 107.2238419177\n        },\n        \"2018-02-15\": {\n            \"ILS\": 3.5242135596,\n            \"JPY\": 106.5476666933\n        },\n        \"2018-02-16\": {\n            \"ILS\": 3.5470956354,\n            \"JPY\": 106.1777920411\n        },\n        \"2018-02-19\": {\n            \"ILS\": 3.5191780822,\n            \"JPY\": 106.5592264303\n        },\n        \"2018-02-20\": {\n            \"ILS\": 3.5024311183,\n            \"JPY\": 107.1717990276\n        },\n        \"2018-02-21\": {\n            \"ILS\": 3.4983755686,\n            \"JPY\": 107.5454840806\n        },\n        \"2018-02-22\": {\n            \"ILS\": 3.4974747475,\n            \"JPY\": 107.0951449984\n        },\n        \"2018-02-23\": {\n            \"ILS\": 3.4895519961,\n            \"JPY\": 106.7403853972\n        },\n        \"2018-02-26\": {\n            \"ILS\": 3.4930194805,\n            \"JPY\": 106.8181818182\n        },\n        \"2018-02-27\": {\n            \"ILS\": 3.4811803918,\n            \"JPY\": 107.1213722462\n        },\n        \"2018-02-28\": {\n            \"ILS\": 3.4802685443,\n            \"JPY\": 107.0247257246\n        },\n        \"2018-03-01\": {\n            \"ILS\": 3.4834442527,\n            \"JPY\": 106.7948401939\n        },\n        \"2018-03-02\": {\n            \"ILS\": 3.4525666017,\n            \"JPY\": 105.4012345679\n        },\n        \"2018-03-05\": {\n            \"ILS\": 3.4598196149,\n            \"JPY\": 105.6471926546\n        },\n        \"2018-03-06\": {\n            \"ILS\": 3.4570139392,\n            \"JPY\": 106.2283458223\n        },\n        \"2018-03-07\": {\n            \"ILS\": 3.4612225175,\n            \"JPY\": 105.8307159539\n        },\n        \"2018-03-08\": {\n            \"ILS\": 3.449963771,\n            \"JPY\": 106.1347717575\n        },\n        \"2018-03-09\": {\n            \"ILS\": 3.4452038077,\n            \"JPY\": 106.8342689773\n        },\n        \"2018-03-12\": {\n            \"ILS\": 3.4443179971,\n            \"JPY\": 106.5192651601\n        },\n        \"2018-03-13\": {\n            \"ILS\": 3.4378736468,\n            \"JPY\": 106.8912586848\n        },\n        \"2018-03-14\": {\n            \"ILS\": 3.4306734578,\n            \"JPY\": 106.5324601827\n        },\n        \"2018-03-15\": {\n            \"ILS\": 3.4366744996,\n            \"JPY\": 106.0692002269\n        },\n        \"2018-03-16\": {\n            \"ILS\": 3.4542720104,\n            \"JPY\": 105.8531826681\n        },\n        \"2018-03-19\": {\n            \"ILS\": 3.4673815907,\n            \"JPY\": 106.1418474287\n        },\n        \"2018-03-20\": {\n            \"ILS\": 3.4816715543,\n            \"JPY\": 106.4841968068\n        },\n        \"2018-03-21\": {\n            \"ILS\": 3.4943024581,\n            \"JPY\": 106.2184600358\n        },\n        \"2018-03-22\": {\n            \"ILS\": 3.4880643066,\n            \"JPY\": 105.3507632348\n        },\n        \"2018-03-23\": {\n            \"ILS\": 3.481613478,\n            \"JPY\": 105.0866677466\n        },\n        \"2018-03-26\": {\n            \"ILS\": 3.4902102973,\n            \"JPY\": 105.1244863428\n        },\n        \"2018-03-27\": {\n            \"ILS\": 3.4915966387,\n            \"JPY\": 105.8823529412\n        },\n        \"2018-03-28\": {\n            \"ILS\": 3.4967736732,\n            \"JPY\": 106.1461526053\n        },\n        \"2018-03-29\": {\n            \"ILS\": 3.5112409707,\n            \"JPY\": 106.44428212\n        },\n        \"2018-04-03\": {\n            \"ILS\": 3.526161846,\n            \"JPY\": 106.2398440039\n        },\n        \"2018-04-04\": {\n            \"ILS\": 3.5429292929,\n            \"JPY\": 106.247963506\n        },\n        \"2018-04-05\": {\n            \"ILS\": 3.5358075041,\n            \"JPY\": 107.0636215334\n        },\n        \"2018-04-06\": {\n            \"ILS\": 3.5362105607,\n            \"JPY\": 107.3401994442\n        },\n        \"2018-04-09\": {\n            \"ILS\": 3.5270643693,\n            \"JPY\": 107.0058517555\n        },\n        \"2018-04-10\": {\n            \"ILS\": 3.5039236308,\n            \"JPY\": 107.0139956314\n        },\n        \"2018-04-11\": {\n            \"ILS\": 3.5165536176,\n            \"JPY\": 106.7990956072\n        },\n        \"2018-04-12\": {\n            \"ILS\": 3.5155400471,\n            \"JPY\": 107.1492331413\n        },\n        \"2018-04-13\": {\n            \"ILS\": 3.5167654461,\n            \"JPY\": 107.6885605261\n        },\n        \"2018-04-16\": {\n            \"ILS\": 3.5025869038,\n            \"JPY\": 107.3322554568\n        },\n        \"2018-04-17\": {\n            \"ILS\": 3.5241563486,\n            \"JPY\": 107.1052844542\n        },\n        \"2018-04-18\": {\n            \"ILS\": 3.5167904424,\n            \"JPY\": 107.2166612851\n        },\n        \"2018-04-19\": {\n            \"ILS\": 3.5080762397,\n            \"JPY\": 107.3170731707\n        },\n        \"2018-04-20\": {\n            \"ILS\": 3.5287188236,\n            \"JPY\": 107.5716955074\n        },\n        \"2018-04-23\": {\n            \"ILS\": 3.5388135316,\n            \"JPY\": 108.1712698153\n        },\n        \"2018-04-24\": {\n            \"ILS\": 3.5576844346,\n            \"JPY\": 108.8348481127\n        },\n        \"2018-04-25\": {\n            \"ILS\": 3.5926138695,\n            \"JPY\": 109.1752154288\n        },\n        \"2018-04-26\": {\n            \"ILS\": 3.5755259698,\n            \"JPY\": 109.1962524655\n        },\n        \"2018-04-27\": {\n            \"ILS\": 3.5937033969,\n            \"JPY\": 109.3206296603\n        },\n        \"2018-04-30\": {\n            \"ILS\": 3.5911913238,\n            \"JPY\": 109.3799155559\n        },\n        \"2018-05-02\": {\n            \"ILS\": 3.6107270759,\n            \"JPY\": 109.8026151412\n        },\n        \"2018-05-03\": {\n            \"ILS\": 3.6290026684,\n            \"JPY\": 109.2645096731\n        },\n        \"2018-05-04\": {\n            \"ILS\": 3.6211880692,\n            \"JPY\": 108.9230512156\n        },\n        \"2018-05-07\": {\n            \"ILS\": 3.6230045371,\n            \"JPY\": 109.3513695177\n        },\n        \"2018-05-08\": {\n            \"ILS\": 3.5972198821,\n            \"JPY\": 109.0564448189\n        },\n        \"2018-05-09\": {\n            \"ILS\": 3.5912113814,\n            \"JPY\": 109.6388584898\n        },\n        \"2018-05-10\": {\n            \"ILS\": 3.5804849301,\n            \"JPY\": 109.6312510524\n        },\n        \"2018-05-11\": {\n            \"ILS\": 3.5662812133,\n            \"JPY\": 109.30115636\n        },\n        \"2018-05-14\": {\n            \"ILS\": 3.5769936603,\n            \"JPY\": 109.5011678345\n        },\n        \"2018-05-15\": {\n            \"ILS\": 3.6026255996,\n            \"JPY\": 110.0479676849\n        },\n        \"2018-05-16\": {\n            \"ILS\": 3.5939409369,\n            \"JPY\": 110.1748133062\n        },\n        \"2018-05-17\": {\n            \"ILS\": 3.5901736552,\n            \"JPY\": 110.681914443\n        },\n        \"2018-05-18\": {\n            \"ILS\": 3.5916305916,\n            \"JPY\": 110.9328579917\n        },\n        \"2018-05-21\": {\n            \"ILS\": 3.5855940131,\n            \"JPY\": 111.267964963\n        },\n        \"2018-05-22\": {\n            \"ILS\": 3.5663049008,\n            \"JPY\": 110.8190605393\n        },\n        \"2018-05-23\": {\n            \"ILS\": 3.5772121626,\n            \"JPY\": 109.8479672019\n        },\n        \"2018-05-24\": {\n            \"ILS\": 3.5745225102,\n            \"JPY\": 109.5327421555\n        },\n        \"2018-05-25\": {\n            \"ILS\": 3.5590578158,\n            \"JPY\": 109.3961456103\n        },\n        \"2018-05-28\": {\n            \"ILS\": 3.5703366541,\n            \"JPY\": 109.3524562006\n        },\n        \"2018-05-29\": {\n            \"ILS\": 3.600536425,\n            \"JPY\": 108.9115763973\n        },\n        \"2018-05-30\": {\n            \"ILS\": 3.5790061898,\n            \"JPY\": 108.9752407153\n        },\n        \"2018-05-31\": {\n            \"ILS\": 3.5738097273,\n            \"JPY\": 108.8383622532\n        },\n        \"2018-06-01\": {\n            \"ILS\": 3.5510326506,\n            \"JPY\": 109.4695346645\n        },\n        \"2018-06-04\": {\n            \"ILS\": 3.5644542899,\n            \"JPY\": 109.431711681\n        },\n        \"2018-06-05\": {\n            \"ILS\": 3.5754175589,\n            \"JPY\": 109.704496788\n        },\n        \"2018-06-06\": {\n            \"ILS\": 3.5662558436,\n            \"JPY\": 110.1317467063\n        },\n        \"2018-06-07\": {\n            \"ILS\": 3.5684352822,\n            \"JPY\": 110.0540723217\n        },\n        \"2018-06-08\": {\n            \"ILS\": 3.5740173558,\n            \"JPY\": 109.4435936702\n        },\n        \"2018-06-11\": {\n            \"ILS\": 3.5729431722,\n            \"JPY\": 109.9406276506\n        },\n        \"2018-06-12\": {\n            \"ILS\": 3.5810145911,\n            \"JPY\": 110.3070919579\n        },\n        \"2018-06-13\": {\n            \"ILS\": 3.5854301258,\n            \"JPY\": 110.5321319279\n        },\n        \"2018-06-14\": {\n            \"ILS\": 3.6000852515,\n            \"JPY\": 110.1023017903\n        },\n        \"2018-06-15\": {\n            \"ILS\": 3.619955157,\n            \"JPY\": 110.6502242152\n        },\n        \"2018-06-18\": {\n            \"ILS\": 3.6292086455,\n            \"JPY\": 110.4538017739\n        },\n        \"2018-06-19\": {\n            \"ILS\": 3.6460898214,\n            \"JPY\": 109.9185018207\n        },\n        \"2018-06-20\": {\n            \"ILS\": 3.6349110382,\n            \"JPY\": 110.027638625\n        },\n        \"2018-06-21\": {\n            \"ILS\": 3.6241983013,\n            \"JPY\": 110.5824232969\n        },\n        \"2018-06-22\": {\n            \"ILS\": 3.6172733516,\n            \"JPY\": 110.1476648352\n        },\n        \"2018-06-25\": {\n            \"ILS\": 3.6105128205,\n            \"JPY\": 109.5811965812\n        },\n        \"2018-06-26\": {\n            \"ILS\": 3.6288553804,\n            \"JPY\": 109.6213159698\n        },\n        \"2018-06-27\": {\n            \"ILS\": 3.6460915978,\n            \"JPY\": 110.261707989\n        },\n        \"2018-06-28\": {\n            \"ILS\": 3.6493999827,\n            \"JPY\": 110.1873435207\n        },\n        \"2018-06-29\": {\n            \"ILS\": 3.6564590839,\n            \"JPY\": 110.6879396123\n        },\n        \"2018-07-02\": {\n            \"ILS\": 3.6644041584,\n            \"JPY\": 110.7139788642\n        },\n        \"2018-07-03\": {\n            \"ILS\": 3.6451778826,\n            \"JPY\": 110.6643806258\n        },\n        \"2018-07-04\": {\n            \"ILS\": 3.652637004,\n            \"JPY\": 110.4964782683\n        },\n        \"2018-07-05\": {\n            \"ILS\": 3.6290033308,\n            \"JPY\": 110.6243060893\n        },\n        \"2018-07-06\": {\n            \"ILS\": 3.6357045377,\n            \"JPY\": 110.5851245309\n        },\n        \"2018-07-09\": {\n            \"ILS\": 3.6182882348,\n            \"JPY\": 110.4504198829\n        },\n        \"2018-07-10\": {\n            \"ILS\": 3.6427900623,\n            \"JPY\": 111.2439170153\n        },\n        \"2018-07-11\": {\n            \"ILS\": 3.6356199403,\n            \"JPY\": 111.2313591819\n        },\n        \"2018-07-12\": {\n            \"ILS\": 3.6506261794,\n            \"JPY\": 112.4806999485\n        },\n        \"2018-07-13\": {\n            \"ILS\": 3.6451945375,\n            \"JPY\": 112.5483122906\n        },\n        \"2018-07-16\": {\n            \"ILS\": 3.6390784983,\n            \"JPY\": 112.3293515358\n        },\n        \"2018-07-17\": {\n            \"ILS\": 3.6315025199,\n            \"JPY\": 112.5907576664\n        },\n        \"2018-07-18\": {\n            \"ILS\": 3.6443889415,\n            \"JPY\": 112.7551459823\n        },\n        \"2018-07-19\": {\n            \"ILS\": 3.6583534691,\n            \"JPY\": 113.030721436\n        },\n        \"2018-07-20\": {\n            \"ILS\": 3.6382176521,\n            \"JPY\": 112.2022279349\n        },\n        \"2018-07-23\": {\n            \"ILS\": 3.637589621,\n            \"JPY\": 111.1130078525\n        },\n        \"2018-07-24\": {\n            \"ILS\": 3.6484708696,\n            \"JPY\": 111.105416026\n        },\n        \"2018-07-25\": {\n            \"ILS\": 3.6394354149,\n            \"JPY\": 111.0350727117\n        },\n        \"2018-07-26\": {\n            \"ILS\": 3.635455787,\n            \"JPY\": 110.8825537726\n        },\n        \"2018-07-27\": {\n            \"ILS\": 3.6697634409,\n            \"JPY\": 111.1827956989\n        },\n        \"2018-07-30\": {\n            \"ILS\": 3.6648408079,\n            \"JPY\": 111.0835330366\n        },\n        \"2018-07-31\": {\n            \"ILS\": 3.6658145876,\n            \"JPY\": 111.4860259032\n        },\n        \"2018-08-01\": {\n            \"ILS\": 3.6737346101,\n            \"JPY\": 111.8416552668\n        },\n        \"2018-08-02\": {\n            \"ILS\": 3.6885598692,\n            \"JPY\": 111.4143066196\n        },\n        \"2018-08-03\": {\n            \"ILS\": 3.6933034173,\n            \"JPY\": 111.580945806\n        },\n        \"2018-08-06\": {\n            \"ILS\": 3.7064887811,\n            \"JPY\": 111.4788183315\n        },\n        \"2018-08-07\": {\n            \"ILS\": 3.6846233408,\n            \"JPY\": 111.0842958111\n        },\n        \"2018-08-08\": {\n            \"ILS\": 3.6843558547,\n            \"JPY\": 111.0708430408\n        },\n        \"2018-08-09\": {\n            \"ILS\": 3.6844647632,\n            \"JPY\": 111.1360303632\n        },\n        \"2018-08-10\": {\n            \"ILS\": 3.7085370112,\n            \"JPY\": 110.9200418994\n        },\n        \"2018-08-13\": {\n            \"ILS\": 3.7031482943,\n            \"JPY\": 110.5937034114\n        },\n        \"2018-08-14\": {\n            \"ILS\": 3.6915658425,\n            \"JPY\": 110.8364018937\n        },\n        \"2018-08-15\": {\n            \"ILS\": 3.6931366487,\n            \"JPY\": 111.0060948679\n        },\n        \"2018-08-16\": {\n            \"ILS\": 3.6897977133,\n            \"JPY\": 110.835532102\n        },\n        \"2018-08-17\": {\n            \"ILS\": 3.6708805197,\n            \"JPY\": 110.3941708366\n        },\n        \"2018-08-20\": {\n            \"ILS\": 3.6614711033,\n            \"JPY\": 110.5516637478\n        },\n        \"2018-08-21\": {\n            \"ILS\": 3.6562336985,\n            \"JPY\": 110.4242740393\n        },\n        \"2018-08-22\": {\n            \"ILS\": 3.6355027548,\n            \"JPY\": 110.261707989\n        },\n        \"2018-08-23\": {\n            \"ILS\": 3.6360652906,\n            \"JPY\": 110.8126781242\n        },\n        \"2018-08-24\": {\n            \"ILS\": 3.6318605454,\n            \"JPY\": 111.2961684501\n        },\n        \"2018-08-27\": {\n            \"ILS\": 3.6345740566,\n            \"JPY\": 111.0289693114\n        },\n        \"2018-08-28\": {\n            \"ILS\": 3.6234842015,\n            \"JPY\": 111.0418445773\n        },\n        \"2018-08-29\": {\n            \"ILS\": 3.6391080617,\n            \"JPY\": 111.2607204117\n        },\n        \"2018-08-30\": {\n            \"ILS\": 3.6110160794,\n            \"JPY\": 111.4608279165\n        },\n        \"2018-08-31\": {\n            \"ILS\": 3.6043258089,\n            \"JPY\": 110.7630246331\n        }\n    },\n    \"start_at\": \"2018-01-01\"\n}"
+				}
+			]
+		},
+		{
+			"name": "quote_base",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/quotebase?base=GBP",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"quotebase"
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "GBP"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "quote with base currency GBP",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/quotebase?base=GBP",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"quotebase"
+							],
+							"query": [
+								{
+									"key": "base",
+									"value": "GBP"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "932"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 02:32:53 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"base\": \"GBP\",\n    \"date\": \"2019-03-20\",\n    \"rates\": {\n        \"AUD\": 1.8543115438,\n        \"BGN\": 2.2668057487,\n        \"BRL\": 4.9851645804,\n        \"CAD\": 1.7530134446,\n        \"CHF\": 1.3140936486,\n        \"CNY\": 8.8101529903,\n        \"CZK\": 29.7241539175,\n        \"DKK\": 8.6490496059,\n        \"EUR\": 1.1590171535,\n        \"GBP\": 1,\n        \"HKD\": 10.3300880853,\n        \"HRK\": 8.5973574409,\n        \"HUF\": 363.1084840056,\n        \"IDR\": 18640.4033379694,\n        \"ILS\": 4.7489568846,\n        \"INR\": 90.5609643023,\n        \"ISK\": 154.033379694,\n        \"JPY\": 146.7663421419,\n        \"KRW\": 1485.8136300417,\n        \"MXN\": 24.9383402874,\n        \"MYR\": 5.3441121929,\n        \"NOK\": 11.2326147427,\n        \"NZD\": 1.9201437181,\n        \"PHP\": 69.5897079277,\n        \"PLN\": 4.9645340751,\n        \"RON\": 5.5186601762,\n        \"RUB\": 84.6128882707,\n        \"SEK\": 12.0897079277,\n        \"SGD\": 1.7773528048,\n        \"THB\": 41.7617060732,\n        \"TRY\": 7.2035234121,\n        \"USD\": 1.315948076,\n        \"ZAR\": 18.9827306444\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "NewCountry",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Country\": \"NewCountry\",\n\t\"CountryCode\": \"NC\",\n\t\"Currency\": \"NewCurrency\",\n\t\"Code\": \"NV\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.:4000/entryCode",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"entryCode"
+					]
+				},
+				"description": "New Currency with country code and currency code"
+			},
+			"response": [
+				{
+					"name": "add New Country with code in DB",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Country\": \"NewCountry\",\n\t\"CountryCode\": \"NC\",\n\t\"Currency\": \"NewCurrency\",\n\t\"Code\": \"NV\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.:4000/entryCode",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"entryCode"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "update NewCountry",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Country\": \"NewCountry\",\n\t\"CountryCode\": \"NCA\",\n\t\"Currency\": \"NewCurrency\",\n\t\"Code\": \"NV\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.:4000/code",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"code"
+					]
+				},
+				"description": "New Currency with country code and currency code"
+			},
+			"response": [
+				{
+					"name": "add New Country with code in DB",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Country\": \"NewCountry\",\n\t\"CountryCode\": \"NC\",\n\t\"Currency\": \"NewCurrency\",\n\t\"Code\": \"NV\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.:4000/entryCode",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"entryCode"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "delete NewCountry",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjQ5MDIsIm5iZiI6MTU1MzUyNDkwMiwianRpIjoiYTljZjYzM2EtN2MzZS00ZjAzLWFjNGQtMjI1ZGE1ZjliN2E2IiwiZXhwIjoxNTUzNjExMzAyLCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.Kgh6WPuQJuhpn6_nZEir63Z3jMImTPyaQq--ssoHL4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Country\": \"NewCountry\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.:4000/code",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"code"
+					]
+				},
+				"description": "New Currency with country code and currency code"
+			},
+			"response": [
+				{
+					"name": "delete NewCountry",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Country\": \"NewCountry\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.:4000/code",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"code"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "symbols",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/symbol",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"symbol"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all available symbols",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/symbol",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"symbol"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,734 @@
+{
+	"info": {
+		"_postman_id": "f46fab49-5e53-413a-bf74-ba254ba3ceff",
+		"name": "users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MTM0NDYsIm5iZiI6MTU1MzUxMzQ0NiwianRpIjoiNWZkNTAwN2UtYWI3YS00N2MwLWE2MTctYjFmM2UzMTBmZmY4IiwiZXhwIjoxNTUzNTk5ODQ2LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.HYFYy6upfy2z2yIABe5RrDqAFu8wPYchiK7yuezX5UY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/user?email=me@admin.com",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "me@admin.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get user data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/user?email=me@admin.com",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "me@admin.com"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "authorization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "email",
+						"value": "ayud@admin.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"me@admin.com\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/auth",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "authorization",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "email",
+								"value": "ayud@admin.com",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "password",
+								"value": "password",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"me@admin.com\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/auth",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "761"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 14:05:27 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"me@admin.com\",\n        \"name\": \"abcd\",\n        \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjI3MjcsIm5iZiI6MTU1MzUyMjcyNywianRpIjoiOGQwZTg5MmYtYzBkYS00MjMzLWE1ZDctNmY0MDg0ZjA5OTk0IiwiZXhwIjoxNTU2MTE0NzI3LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwidHlwZSI6InJlZnJlc2gifQ.IR_O9hUZbsgbsO9UIea6V6gD07adD8Zdcz2tmRj-gSg\",\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MjI3MjcsIm5iZiI6MTU1MzUyMjcyNywianRpIjoiMGQ2Mjk1MjAtZWZmYi00NTJhLTk2M2MtMDUwZjhmMWVlNTQ3IiwiZXhwIjoxNTUzNjA5MTI3LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.krzzQAkGry-KagfLqAW6AmVcC8GvPicur8Uk9Cvt8rg\"\n    },\n    \"ok\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Felix\",\n\t\"email\": \"feaakjjas@admin.com\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/register",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registration",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"userName\",\n\t\"email\": \"user@mail.com\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/register",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "803"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 12:31:37 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"me@admin.com\",\n        \"name\": \"me\",\n        \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MTcwOTcsIm5iZiI6MTU1MzUxNzA5NywianRpIjoiNTU0ZDZkZTUtOTkyOC00M2FkLTkzZTctODQwNzc3N2M1YmJhIiwiZXhwIjoxNTU2MTA5MDk3LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwidHlwZSI6InJlZnJlc2gifQ.oglU4KqaNxuFri5hrVMvNaF2FM6Ynwl8mB9GEnceizc\",\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MTcwOTcsIm5iZiI6MTU1MzUxNzA5NywianRpIjoiZDgzMTQ5YTgtYTk4Zi00YzQ4LWE2NDQtMjZmNjE0MGY2Yjc0IiwiZXhwIjoxNTUzNjAzNDk3LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.cqu0YTa1MPRG8jR-05HlEbhwjVIAQEpEwUK2Id46QoU\"\n    },\n    \"message\": \"User created successfully!\",\n    \"ok\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5NDUxNjgsIm5iZiI6MTU1Mjk0NTE2OCwianRpIjoiMTc3YWYxMWItZjBiYy00ODYyLTg1OTUtYmRkOTFkODlkMzA1IiwiZXhwIjoxNTU1NTM3MTY4LCJpZGVudGl0eSI6eyJlbWFpbCI6ImF5dWRAYWRtaW4uY29tIiwicGFzc3dvcmQiOiJwYXNzd29yZCJ9LCJ0eXBlIjoicmVmcmVzaCJ9.8ahnETlou6e1D-JFJ9XauQnqheVJSU_FS8kQTzimJ8Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5NDUxNjgsIm5iZiI6MTU1Mjk0NTE2OCwianRpIjoiMTc3YWYxMWItZjBiYy00ODYyLTg1OTUtYmRkOTFkODlkMzA1IiwiZXhwIjoxNTU1NTM3MTY4LCJpZGVudGl0eSI6eyJlbWFpbCI6ImF5dWRAYWRtaW4uY29tIiwicGFzc3dvcmQiOiJwYXNzd29yZCJ9LCJ0eXBlIjoicmVmcmVzaCJ9.8ahnETlou6e1D-JFJ9XauQnqheVJSU_FS8kQTzimJ8Y\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/refresh",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"refresh"
+					]
+				},
+				"description": "Get access token using refresh token"
+			},
+			"response": [
+				{
+					"name": "refresh token using refresh token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5NDUxNjgsIm5iZiI6MTU1Mjk0NTE2OCwianRpIjoiMTc3YWYxMWItZjBiYy00ODYyLTg1OTUtYmRkOTFkODlkMzA1IiwiZXhwIjoxNTU1NTM3MTY4LCJpZGVudGl0eSI6eyJlbWFpbCI6ImF5dWRAYWRtaW4uY29tIiwicGFzc3dvcmQiOiJwYXNzd29yZCJ9LCJ0eXBlIjoicmVmcmVzaCJ9.8ahnETlou6e1D-JFJ9XauQnqheVJSU_FS8kQTzimJ8Y\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/refresh",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MTM0NDYsIm5iZiI6MTU1MzUxMzQ0NiwianRpIjoiNWZkNTAwN2UtYWI3YS00N2MwLWE2MTctYjFmM2UzMTBmZmY4IiwiZXhwIjoxNTUzNTk5ODQ2LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.HYFYy6upfy2z2yIABe5RrDqAFu8wPYchiK7yuezX5UY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"me@admin.com\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/user?",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "me@admin.com",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "bhaskar",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete user by email",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"me@admin.com\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/user?",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "me@admin.com",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "bhaskar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1MTM0NDYsIm5iZiI6MTU1MzUxMzQ0NiwianRpIjoiNWZkNTAwN2UtYWI3YS00N2MwLWE2MTctYjFmM2UzMTBmZmY4IiwiZXhwIjoxNTUzNTk5ODQ2LCJpZGVudGl0eSI6eyJlbWFpbCI6Im1lQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.HYFYy6upfy2z2yIABe5RrDqAFu8wPYchiK7yuezX5UY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"me@admin.com\",\n\t\"name\":\"bhaskar\",\n\t\"password\":\"password\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/user?",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "me@admin.com",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "bhaskar",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update user name or password\nuser can send only name with email or\nemail with password for password reset\nor \nuser can change name and password both at 1 time bysending them with email"
+			},
+			"response": [
+				{
+					"name": "update name and password",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"me@admin.com\",\n\t\"name\":\"newName\",\n\t\"password\":\"newPassword\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/user?",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "me@admin.com",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "bhaskar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 14:12:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User updated successfully!\",\n    \"ok\": true\n}"
+				},
+				{
+					"name": "update user password",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"me@admin.com\",\n\t\"password\":\"newPassword\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/user",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 14:12:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User updated successfully!\",\n    \"ok\": true\n}"
+				},
+				{
+					"name": "update password only",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"me@admin.com\",\n\t\"password\":\"newPassword\"\n}"
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/user?",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "me@admin.com",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "bhaskar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Mar 2019 14:12:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User updated successfully!\",\n    \"ok\": true\n}"
+				}
+			]
+		}
+	]
+}

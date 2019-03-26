@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "1c041a0c-a255-47d0-b342-b14524f3c3a2",
+		"name": "weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "forecast",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzOTc3MzUsIm5iZiI6MTU1MzM5NzczNSwianRpIjoiMWUxNzg2MmEtNWI5OS00MzQ4LWEzY2QtODZjZmNhMmNjNDk0IiwiZXhwIjoxNTUzNDg0MTM1LCJpZGVudGl0eSI6eyJlbWFpbCI6ImZlYWFha2tqYWphYXNsQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.aDh4wwCmAhSvgh3XzOxYrr_QtXebv5lUqNx8yKOR8b8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:4000/forecast?city=e15 2zl&language=en&days=3",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "e15 2zl"
+						},
+						{
+							"key": "language",
+							"value": "en"
+						},
+						{
+							"key": "days",
+							"value": "3"
+						},
+						{
+							"key": "days",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Forecast with days"
+			},
+			"response": [
+				{
+					"name": "forecast for 3 days with city name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/forecast?city=london&language=en&days=3",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"forecast"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "london"
+								},
+								{
+									"key": "language",
+									"value": "en"
+								},
+								{
+									"key": "days",
+									"value": "3"
+								},
+								{
+									"key": "days",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "forecast for 3 days with postcode",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://0.0.0.0:4000/forecast?city=e15 2zl&language=en&days=3",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"forecast"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "e15 2zl"
+								},
+								{
+									"key": "language",
+									"value": "en"
+								},
+								{
+									"key": "days",
+									"value": "3"
+								},
+								{
+									"key": "days",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "weathercity",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzOTc3MzUsIm5iZiI6MTU1MzM5NzczNSwianRpIjoiMWUxNzg2MmEtNWI5OS00MzQ4LWEzY2QtODZjZmNhMmNjNDk0IiwiZXhwIjoxNTUzNDg0MTM1LCJpZGVudGl0eSI6eyJlbWFpbCI6ImZlYWFha2tqYWphYXNsQGFkbWluLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.aDh4wwCmAhSvgh3XzOxYrr_QtXebv5lUqNx8yKOR8b8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://0.0.0.0:4000/cityWeather?city=london&language=ar",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "4000",
+					"path": [
+						"cityWeather"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "0a90bd51afe74d5889a03447192003",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "london"
+						},
+						{
+							"key": "language",
+							"value": "ar"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "weather condition for current day with city name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://0.0.0.0:4000/cityWeather?city=london&language=en",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"cityWeather"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "0a90bd51afe74d5889a03447192003",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "london"
+								},
+								{
+									"key": "language",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "964"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Mar 2019 03:24:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current\": {\n        \"cloud\": 0,\n        \"condition\": {\n            \"code\": 1000,\n            \"icon\": \"//cdn.apixu.com/weather/64x64/night/113.png\",\n            \"text\": \"صافي\"\n        },\n        \"feelslike_c\": 5,\n        \"feelslike_f\": 41,\n        \"gust_kph\": 5.4,\n        \"gust_mph\": 3.4,\n        \"humidity\": 87,\n        \"is_day\": 0,\n        \"last_updated\": \"2019-03-24 03:15\",\n        \"last_updated_epoch\": 1553397304,\n        \"precip_in\": 0,\n        \"precip_mm\": 0,\n        \"pressure_in\": 30.9,\n        \"pressure_mb\": 1031,\n        \"temp_c\": 5,\n        \"temp_f\": 41,\n        \"uv\": 0,\n        \"vis_km\": 10,\n        \"vis_miles\": 6,\n        \"wind_degree\": 71,\n        \"wind_dir\": \"ENE\",\n        \"wind_kph\": 0,\n        \"wind_mph\": 0\n    },\n    \"location\": {\n        \"country\": \"United Kingdom\",\n        \"lat\": 51.52,\n        \"localtime\": \"2019-03-24 3:21\",\n        \"localtime_epoch\": 1553397695,\n        \"lon\": -0.11,\n        \"name\": \"London\",\n        \"region\": \"City of London, Greater London\",\n        \"tz_id\": \"Europe/London\"\n    }\n}"
+				},
+				{
+					"name": "weather condition for current day with postcode",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://0.0.0.0:4000/cityWeather?city=e15 2zl&language=en",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "4000",
+							"path": [
+								"cityWeather"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "0a90bd51afe74d5889a03447192003",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "e15 2zl"
+								},
+								{
+									"key": "language",
+									"value": "en"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "964"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.15.1 Python/3.7.2"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Mar 2019 03:24:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current\": {\n        \"cloud\": 0,\n        \"condition\": {\n            \"code\": 1000,\n            \"icon\": \"//cdn.apixu.com/weather/64x64/night/113.png\",\n            \"text\": \"صافي\"\n        },\n        \"feelslike_c\": 5,\n        \"feelslike_f\": 41,\n        \"gust_kph\": 5.4,\n        \"gust_mph\": 3.4,\n        \"humidity\": 87,\n        \"is_day\": 0,\n        \"last_updated\": \"2019-03-24 03:15\",\n        \"last_updated_epoch\": 1553397304,\n        \"precip_in\": 0,\n        \"precip_mm\": 0,\n        \"pressure_in\": 30.9,\n        \"pressure_mb\": 1031,\n        \"temp_c\": 5,\n        \"temp_f\": 41,\n        \"uv\": 0,\n        \"vis_km\": 10,\n        \"vis_miles\": 6,\n        \"wind_degree\": 71,\n        \"wind_dir\": \"ENE\",\n        \"wind_kph\": 0,\n        \"wind_mph\": 0\n    },\n    \"location\": {\n        \"country\": \"United Kingdom\",\n        \"lat\": 51.52,\n        \"localtime\": \"2019-03-24 3:21\",\n        \"localtime_epoch\": 1553397695,\n        \"lon\": -0.11,\n        \"name\": \"London\",\n        \"region\": \"City of London, Greater London\",\n        \"tz_id\": \"Europe/London\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
