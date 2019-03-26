@@ -49,7 +49,7 @@ export function login(email, password) {
                         'Content-Type': 'application/json'
                     }
                 });
-                window.location.href = "http://0.0.0.0:4000/crimestat?Authorization=" + token;
+                window.location.href = "http://mrbhaskar.com";
                 /*   axiosInstance.get('/crimestat')
                       .then(function (response) { window.location = "http://0.0.0.0:4000/crimestat" })
                       .catch(err => {

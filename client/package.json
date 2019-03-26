@@ -26,7 +26,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "deploy": "webpack --mode production && aws s3 sync dist/ s3://districttestabc"
   },
   "browserslist": [
     ">0.2%",
