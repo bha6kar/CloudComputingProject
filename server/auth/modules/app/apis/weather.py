@@ -7,7 +7,7 @@ import requests_cache
 import os
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from bson.objectid import ObjectId
-from app import app, mongo
+from app import app
 import logger
 
 ROOT_PATH = os.environ.get('ROOT_PATH')

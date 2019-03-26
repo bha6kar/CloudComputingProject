@@ -3,7 +3,7 @@ import json
 import requests
 import requests_cache
 import os
-from app import app, mongo
+from app import app
 
 requests_cache.install_cache(
     'dicyionary_api_cache', backend='sqlite', expire_after=36000)

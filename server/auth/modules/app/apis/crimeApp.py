@@ -7,7 +7,7 @@ import requests_cache
 import os
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from bson.objectid import ObjectId
-from app import app, mongo
+from app import app
 import logger
 
 ROOT_PATH = os.environ.get('ROOT_PATH')
@@ -22,7 +22,7 @@ crime_url_template = 'https://data.police.uk/api/crimes-street/all-crime?lat={la
 categories_url_template = 'https://data.police.uk/api/crime-categories?date={date}'
 
 
-@app.route('/crimestat',  methods=['GET'])
+@app.route('/crimestat', methods=['GET'])
 @jwt_required
 def crimechart():
     my_latitude = request.args.get('lat', '51.52369')
