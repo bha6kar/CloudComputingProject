@@ -6,7 +6,7 @@ docker build -t gcr.io/${PROJECT_ID}/exchange-server:v1 .
 gcloud auth configure-docker
 docker push gcr.io/${PROJECT_ID}/exchange-server:v1
 
-gcloud container clusters create hello-cluster --num-nodes=3
+# gcloud container clusters create hello-cluster --num-nodes=3
 
 kubectl run web-app-server --image=gcr.io/${PROJECT_ID}/exchange-server:v1 --port 8080
 
