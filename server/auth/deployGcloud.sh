@@ -12,4 +12,4 @@ kubectl run web-app-server --image=gcr.io/${PROJECT_ID}/exchange-server:v1 --por
 
 kubectl expose deployment web-app-server --type=LoadBalancer --port 80 --target-port 8080
 
-kubectl scale deployment web-app-server --replicas=3
+kubectl scale deployment web-app-server --replicas=4
