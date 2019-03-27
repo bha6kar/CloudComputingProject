@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
 
 #  Mini Project for Cloud computing (ECS 781P)
 * #### Name : Bhaskar Jyoti Saikia
@@ -53,7 +53,10 @@ In app I am using JWT authentication **Bearer Token** while login. I am using Fl
 - Using jsonschema to validate the API request object.
 - Creating user registration & authentication route.
 
-I am using Jwt RS512 algorithm for tokenization. The keys can be found in the server/key folder. I have made the shell script to generate the key, it can be found in jwtRS512.sh :
+> **NOTE:** I have made the authentication in React JS and Node Js as well along with python, which can be found in **server/authJS** with which we can make a micro service and call them in any API for security check. But both(Python JWT authentication and REactJS authentication) are doing the same work and providing the same level of security. But the ReactJS one has more flexibility in terms of CORS and have more control on authentication. So, I made that and implemented that as well and deployed that as well in AWS cloud. But for 1 server-app deployment in gcloud  I used the python authentication. 
+
+
+I am using Jwt RS512 algorithm for tokenization in both. The keys can be found in the server/key folder. I have made the shell script to generate the key, it can be found in jwtRS512.sh :
 
 ```sh 
 $ openssl genrsa -aes128 -out prv.pem 4096
@@ -100,12 +103,45 @@ Verify the deployment by navigating to your server address in your preferred bro
 ```sh
 127.0.0.1:8000
 ```
+#### Authentication in React JS
+To install all the dependencies:
+
+```sh
+yarn install
+```
+It will installl the required dependenies to run the server-app.
+To run the app:
+
+```sh 
+yarn start
+```
+It will start the app.
+
+To build the production app for deployment. We can run :
+```sh
+yarn build
+```
+It will generate the necessary files for deployment in the dist folder.
+>**NOTE:** I am using webpack and babel for distribution or deployment folder. And instead of yarn you can use **npm**, but **yarn** is better as it provides the locking system.
 
 #### Kubernetes + Google Cloud
 
 See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
 
-To make the deployment in the Google CLoud with Kubernetes use the shell script deployGcloud.sh
+I generated the Kubernetes scripts as well using kompose the library provided by the Kubernetes, command for that is:
+
+```sh
+kompose convert
+```
+It generates loadbalancer files deployment and service yaml file. And to run it we can  do the following:
+
+```sh
+kompose up
+``` 
+this will deploy the app and we can debug
+
+To make the deployment in the Google CLoud with Kubernetes I made the script, you can use the shell script deployGcloud.sh
+
 
 ```sh
 $ sh server/deployGcloud.sh 
