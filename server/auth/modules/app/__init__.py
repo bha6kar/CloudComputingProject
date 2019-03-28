@@ -30,8 +30,8 @@ app = Flask(__name__)
 app.config.from_object('config')
 app.config.from_pyfile('config.py')
 
-RSA_PUBLIC = RSA.import_key(open("pub.pem", "r").read())
-RSA_PRIVATE = RSA.import_key(open("prv.pem").read(), passphrase='secret')
+RSA_PUBLIC = RSA.import_key(open("key/pub.pem", "r").read())
+RSA_PRIVATE = RSA.import_key(open("key/prv.pem").read(), passphrase='secret')
 # app.config['MONGO_URI'] = 'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/'
 app.config['JWT_SECRET_KEY'] = app.config['SECRET_KEY']
 app.config['JWT_PUBLIC_KEY'] = RSA_PUBLIC
