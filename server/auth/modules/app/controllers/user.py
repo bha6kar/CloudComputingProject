@@ -14,8 +14,9 @@ import pymongo
 #     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
 mongo_client = pymongo.MongoClient(
-    'mongodb+srv://admin:bhaskar123@cluster0-ydzee.gcp.mongodb.net/', maxPoolSize=50, connect=False)
+    'mongodb+srv://bhaskar:bhaskar123@cluster0-ydzee.gcp.mongodb.net/', maxPoolSize=50, connect=False)
 db = pymongo.database.Database(mongo_client, 'bhaskarDB')
+print(mongo_client)
 
 
 @jwt.unauthorized_loader
@@ -152,8 +153,8 @@ def user():
         if 'password' in data.keys() and 'name' in data.keys():
             data['password'] = flask_bcrypt.generate_password_hash(
                 data['password'])
-            newvalues = {"$set": {"name": data['name'],
-                                  "password": data['password']}}
+            newvalues = {
+                "$set": {"name": data['name'], "password": data['password']}}
         else:
             if 'password' in data.keys():
                 data['password'] = flask_bcrypt.generate_password_hash(

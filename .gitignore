@@ -13,7 +13,7 @@ __pycache__/
 *.pyc
 *.log
 *.sqlite
-
+*.lock
 # production
 build/
 dist/
