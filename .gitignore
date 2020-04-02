@@ -3,6 +3,7 @@
 .vscode
 node_modules/
 __pycache__/
+package-lock.json
 
 # misc
 .DS_Store
